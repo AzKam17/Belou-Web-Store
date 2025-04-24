@@ -20,21 +20,23 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-																		 children,
-																	 }: Readonly<{
-	children: React.ReactNode;
+  children,
+}: Readonly<{
+  children: React.ReactNode;
 }>) {
-	return (
-		<html lang="en">
-		<body
-			className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-		>
-		<Providers>
-			<Header />
-			<hr />
-			{children}
-		</Providers>
-		</body>
-		</html>
-	)
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <Providers>
+          <div className="mx-auto w-full max-w-5xl px-4 pt-4 sm:px-6 lg:px-8">
+            <Header />
+            <hr className="mt-4" />
+            {children}
+          </div>
+        </Providers>
+      </body>
+    </html>
+  )
 }

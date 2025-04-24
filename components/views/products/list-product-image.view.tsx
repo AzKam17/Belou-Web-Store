@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-
 import { useFilePublicUrl } from '@/data/file.data'
 import { Guard } from '@/utils'
 
@@ -9,7 +8,6 @@ export type ListProductImageView = {
 }
 
 export const ListProductImageView = React.memo((props: ListProductImageView) => {
-
 	const { isPending, data } = useFilePublicUrl({
 		bucket: 'product-pictures',
 		publicBucket: true,
@@ -17,18 +15,19 @@ export const ListProductImageView = React.memo((props: ListProductImageView) => 
 	})
 
 	if (Guard.isEmpty(props.imagePath)) return <></>
-
 	if (isPending) return <></>
 
-	return <>
-		<Image
-			src={data!}
-			width={100}
-			height={300}
-			alt="Picture of the author"
-		/>
-	</>
+	return (
+		<div className="aspect-square overflow-hidden rounded-lg w-full max-w-[200px]">
+			<Image
+				src={data!}
+				width={200}
+				height={200}
+				alt="Product image"
+				className="h-full w-full object-cover object-center"
+			/>
+		</div>
+	)
 })
-
 
 ListProductImageView.displayName = 'ListProductImageView'

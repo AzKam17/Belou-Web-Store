@@ -17,11 +17,11 @@ export function Header() {
 
 	if (isPending || isStoreImgPending) return <></>
 
-	return <>
-		<Avatar>
+	return <div className="flex flex-col items-center gap-3 py-4">
+		<Avatar className="h-32 w-32 border border-black">
 			<AvatarImage src={storeImg} />
 			<AvatarFallback>B</AvatarFallback>
 		</Avatar>
-		<p>{data?.name}</p>
-	</>
+		<h1 className="text-2xl font-semibold">{data?.name}</h1>
+	</div>
 }
