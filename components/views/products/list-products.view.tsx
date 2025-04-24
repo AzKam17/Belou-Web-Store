@@ -1,8 +1,11 @@
+'use client'
+
 import React from 'react'
 import { useSubDomain } from '@/hooks/useSubDomain'
 import { useGetStore } from '@/data'
 import { useGetProducts } from '@/data/products.data'
 import { ListProductImageView } from '@/components/views/products/list-product-image.view'
+import Link from 'next/link'
 
 export const ListProductsView = React.memo(function() {
 
@@ -14,10 +17,12 @@ export const ListProductsView = React.memo(function() {
 
 	return (<>
 		{productsData?.map((e, idx) => <div key={idx}>
-			<ListProductImageView imagePath={e.images[0]} />
-			<h3>{e.name}</h3>
-			<h3>{e.price} FCFA</h3>
-			<br />
+			<Link href={`/product/${e.id}`}>
+				<ListProductImageView imagePath={e.images[0]} />
+				<h3>{e.name}</h3>
+				<h3>{e.price} FCFA</h3>
+				<br />
+			</Link>
 		</div>)}
 	</>)
 })
