@@ -2,25 +2,17 @@
 
 import Image from 'next/image'
 import { useEffect } from 'react'
-import { useSubDomain } from '@/states'
 import { useGetStoreProducts } from '@/data'
+import { useSubDomain } from '@/hooks/useSubDomain'
 
 
 export default function Home() {
-	const { subdomain, updateDomain } = useSubDomain()
+	const subdomain = useSubDomain()
 	const { isPending, data } = useGetStoreProducts(subdomain)
 
 	useEffect(() => {
-		const host = window.location.hostname
-		const parts = host.split('.')
-		console.log(window.location.hostname)
-
-		updateDomain(parts[0])
-	}, [updateDomain])
-
-	useEffect(() => {
-		console.log(data)
-	}, [data, isPending])
+		console.log('ee', subdomain, data)
+	}, [subdomain, data, isPending])
 
 	return (
 		<div
