@@ -1,20 +1,20 @@
 'use client';
 
 import Image from "next/image";
-import { Button } from "@/components/ui/button"
 import {useEffect, useState} from "react";
+import {useSubDomain} from "@/states";
 
 
 export default function Home() {
-  const [subdomain, setSubdomain] = useState<string>('')
+  const { subdomain, updateDomain } = useSubDomain()
 
   useEffect(() => {
     const host = window.location.hostname
     const parts = host.split('.')
     console.log(window.location.hostname)
 
-    setSubdomain(parts[0])
-  }, [])
+    updateDomain(parts[0])
+  }, [updateDomain])
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">

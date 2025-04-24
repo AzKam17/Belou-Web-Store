@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat: init project">
-      <change afterPath="$PROJECT_DIR$/app/utils/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/supabase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat: added .idea to gitignore">
+      <change afterPath="$PROJECT_DIR$/states/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/states/useSubDomain.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/supabase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/supabase.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -56,6 +57,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.dev">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
@@ -91,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1739812692499</updated>
       <workItem from="1745394696787" duration="730000" />
-      <workItem from="1745478127513" duration="833000" />
+      <workItem from="1745478127513" duration="1214000" />
     </task>
     <task id="LOCAL-00001" summary="feat: init project">
       <option name="closed" value="true" />
@@ -101,7 +107,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745395426748</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: fetching subdomain from url">
+      <option name="closed" value="true" />
+      <created>1745478973607</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745478973607</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: added .idea to gitignore">
+      <option name="closed" value="true" />
+      <created>1745478985147</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745478985147</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,6 +131,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: init project" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: init project" />
+    <MESSAGE value="feat: fetching subdomain from url" />
+    <MESSAGE value="feat: added .idea to gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added .idea to gitignore" />
   </component>
 </project>
