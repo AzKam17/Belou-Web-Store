@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat: refactored store info">
-      <change afterPath="$PROJECT_DIR$/data/file.data.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/products.data.ts" afterDir="false" />
+    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat: listing products">
+      <change afterPath="$PROJECT_DIR$/components/views/products/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/views/products/list-product-image.view.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/views/products/list-products.view.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/views/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/store.data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/store.data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -106,7 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1739812692499</updated>
       <workItem from="1745394696787" duration="730000" />
-      <workItem from="1745478127513" duration="6016000" />
+      <workItem from="1745478127513" duration="7048000" />
     </task>
     <task id="LOCAL-00001" summary="feat: init project">
       <option name="closed" value="true" />
@@ -156,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745482384134</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: listing products">
+      <option name="closed" value="true" />
+      <created>1745484672201</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745484672201</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +177,19 @@
     <MESSAGE value="feat: added zustand" />
     <MESSAGE value="feat: added react query" />
     <MESSAGE value="feat: refactored store info" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: refactored store info" />
+    <MESSAGE value="feat: listing products" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: listing products" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app/layout.tsx</url>
+          <line>18</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
