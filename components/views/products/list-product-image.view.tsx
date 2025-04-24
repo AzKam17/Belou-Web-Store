@@ -18,13 +18,13 @@ export const ListProductImageView = React.memo((props: ListProductImageView) => 
 	if (isPending) return <></>
 
 	return (
-		<div className="aspect-square overflow-hidden rounded-lg w-full max-w-[200px]">
+		<div className="aspect-square w-full overflow-hidden rounded-xl bg-muted/10">
 			<Image
 				src={data!}
-				width={200}
-				height={200}
+				width={400}
+				height={400}
 				alt="Product image"
-				className="h-full w-full object-cover object-center"
+				className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-110 rounded-xl"
 			/>
 		</div>
 	)
