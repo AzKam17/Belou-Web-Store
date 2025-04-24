@@ -16,16 +16,25 @@ export default function ProductPage() {
     if (!product) return <div>Product not found</div>
 
     return (
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-8 py-6">
             <div className="w-full md:w-1/2">
                 <ProductImagesCarousel images={product.images} />
             </div>
             
-            <div className="w-full md:w-1/2 space-y-4">
-                <h1 className="text-3xl font-bold">{product.name}</h1>
-                <p className="text-2xl font-semibold">{product.price} FCFA</p>
-                <div className="prose max-w-none">
-                    <p>{product.description}</p>
+            <div className="w-full md:w-1/2 space-y-6">
+                <div>
+                    <h1 className="text-3xl font-bold">{product.name}</h1>
+                    <p className="text-2xl font-semibold mt-2">{product.price} FCFA</p>
+                </div>
+                
+                <div className="py-6">
+                    <div className="prose max-w-none">
+                        {product.description ? (
+                            <p className="text-gray-700 whitespace-pre-wrap">{product.description}</p>
+                        ) : (
+                            <p className="text-gray-500 italic">Pas de description</p>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
