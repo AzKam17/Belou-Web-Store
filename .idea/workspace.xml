@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat: added .idea to gitignore">
-      <change afterPath="$PROJECT_DIR$/states/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/states/useSubDomain.ts" afterDir="false" />
+    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat: added zustand">
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/_app.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/providers/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/providers/providers.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/store.data.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/supabase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/supabase.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -22,9 +25,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
       </list>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,12 +59,17 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.dev.executor": "Run",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "prettierjs.PrettierConfiguration.Package": "/Users/azk/.nvm/versions/node/v21.6.2/lib/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "actions.on.save",
     "ts.external.directory.path": "/Users/azk/WebstormProjects/Belou/web-store/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -97,7 +109,7 @@
       <option name="presentableId" value="Default" />
       <updated>1739812692499</updated>
       <workItem from="1745394696787" duration="730000" />
-      <workItem from="1745478127513" duration="1214000" />
+      <workItem from="1745478127513" duration="3028000" />
     </task>
     <task id="LOCAL-00001" summary="feat: init project">
       <option name="closed" value="true" />
@@ -123,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745478985147</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: added zustand">
+      <option name="closed" value="true" />
+      <created>1745479389985</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745479389985</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +153,7 @@
     <MESSAGE value="feat: init project" />
     <MESSAGE value="feat: fetching subdomain from url" />
     <MESSAGE value="feat: added .idea to gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added .idea to gitignore" />
+    <MESSAGE value="feat: added zustand" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added zustand" />
   </component>
 </project>
