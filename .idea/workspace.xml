@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat: added react query">
-      <change afterPath="$PROJECT_DIR$/.npmrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/views/header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/views/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hooks/useSubDomain.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/guard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/misc.ts" afterDir="false" />
+    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat: refactored store info">
+      <change afterPath="$PROJECT_DIR$/data/file.data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/products.data.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/views/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/store.data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/store.data.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/states/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/states/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/states/useSubDomain.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1739812692499</updated>
       <workItem from="1745394696787" duration="730000" />
-      <workItem from="1745478127513" duration="4208000" />
+      <workItem from="1745478127513" duration="6016000" />
     </task>
     <task id="LOCAL-00001" summary="feat: init project">
       <option name="closed" value="true" />
@@ -156,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745481238394</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: refactored store info">
+      <option name="closed" value="true" />
+      <created>1745482384134</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745482384134</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +168,7 @@
     <MESSAGE value="feat: added .idea to gitignore" />
     <MESSAGE value="feat: added zustand" />
     <MESSAGE value="feat: added react query" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: added react query" />
+    <MESSAGE value="feat: refactored store info" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: refactored store info" />
   </component>
 </project>
