@@ -1,18 +1,33 @@
 'use client'
 
-import {useParams} from 'next/navigation'
-import {useEffect} from 'react'
+import { useParams } from 'next/navigation'
+import { useGetProducts, useGetStore } from '@/data'
+import { useSubDomain } from '@/hooks/useSubDomain'
+import { ProductImagesCarousel } from '@/components/views/products/product-images-carousel'
 
-export default function StorePage() {
+export default function ProductPage() {
     const params = useParams()
+    const subdomain = useSubDomain()
+    const { data: storeData } = useGetStore(subdomain)
+    const { data: productsData } = useGetProducts(storeData?.id)
+    
+    const product = productsData?.find(p => p.id === params.id)
 
-    useEffect(() => {
-        console.log('Dynamic storeId:', params.id)
-    }, [params])
+    if (!product) return <div>Product not found</div>
 
     return (
-        <div>
-            <h1>Store ID: {params.id}</h1>
+        <div className="flex flex-col md:flex-row gap-8">
+            <div className="w-full md:w-1/2">
+                <ProductImagesCarousel images={product.images} />
+            </div>
+            
+            <div className="w-full md:w-1/2 space-y-4">
+                <h1 className="text-3xl font-bold">{product.name}</h1>
+                <p className="text-2xl font-semibold">{product.price} FCFA</p>
+                <div className="prose max-w-none">
+                    <p>{product.description}</p>
+                </div>
+            </div>
         </div>
     )
 }
