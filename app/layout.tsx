@@ -4,7 +4,7 @@ import './globals.css'
 import { Providers } from '@/components/providers/'
 import { Header } from '@/components/views'
 import { Toaster } from "@/components/ui/sonner"
-
+import Image from 'next/image'
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -41,8 +41,15 @@ export default function RootLayout({
             
             <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
               <footer className="py-4 border-t mt-auto">
-                <div className="flex justify-end">
-                  <p className="text-sm text-gray-500">fourni par Belou</p>
+                <div className="flex justify-end items-center">
+                  <p className="text-sm text-gray-500">fourni par{' '}<span className="font-bold">Belou</span></p>
+                  <Image 
+                    src="/belou.svg" 
+                    alt="Belou Logo" 
+                    width={50} 
+                    height={50} 
+                    className="text-orange-500"
+                  />
                 </div>
               </footer>
             </div>

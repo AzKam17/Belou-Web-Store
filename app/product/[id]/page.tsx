@@ -45,8 +45,6 @@ export default function ProductPage() {
 
     return (
         <div className="flex flex-col pb-20 md:pb-6 md:flex-row gap-8 py-6">
-           
-            
             <div className="w-full md:w-1/2">
                 <div className="w-full mb-1">
                     <BackButton />
