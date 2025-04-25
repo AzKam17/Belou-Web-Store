@@ -24,7 +24,7 @@ export default function ProductPage() {
     }
 
     return (
-        <div className="flex flex-col md:flex-row gap-8 py-6">
+        <div className="flex flex-col pb-20 md:pb-6 md:flex-row gap-8 py-6">
             <div className="w-full md:w-1/2">
                 <ProductImagesCarousel images={product.images} />
             </div>
@@ -45,7 +45,8 @@ export default function ProductPage() {
                     </div>
                 </div>
                 
-                <div>
+                {/* Desktop button - visible only on md screens and up */}
+                <div className="hidden md:block">
                     <Button 
                         onClick={handleAddToCart} 
                         className="w-full py-6"
@@ -55,6 +56,18 @@ export default function ProductPage() {
                         Ajouter
                     </Button>
                 </div>
+            </div>
+            
+            {/* Mobile fixed button - visible only on smaller screens */}
+            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t md:hidden z-10">
+                <Button 
+                    onClick={handleAddToCart} 
+                    className="w-full py-6"
+                    size="lg"
+                >
+                    <ShoppingCart className="mr-2 h-5 w-5" />
+                    Ajouter
+                </Button>
             </div>
         </div>
     )
