@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button'
 import { ShoppingCart, Plus, Minus } from 'lucide-react'
 import { useState } from 'react'
 import { BackButton } from '@/components/ui/back-button'
+import { useCartStore } from '@/store/cart-store'
+import { toast } from 'sonner'
 
 export default function ProductPage() {
     const params = useParams()
@@ -15,6 +17,7 @@ export default function ProductPage() {
     const { data: storeData } = useGetStore(subdomain)
     const { data: productsData } = useGetProducts(storeData?.id)
     const [quantity, setQuantity] = useState(1)
+    const addItem = useCartStore(state => state.addItem)
     
     const product = productsData?.find(p => p.id === params.id)
 
@@ -24,6 +27,9 @@ export default function ProductPage() {
         // Here you would implement the logic to add the product to the cart
         // This could involve updating a context, local storage, or making an API call
         console.log('Adding to cart:', product, 'Quantity:', quantity)
+        console.log('add to cart')
+        addItem(product.id, quantity)
+        toast.success(`${product.name} ajouté au panier`)
     }
 
     const incrementQuantity = () => {
@@ -34,8 +40,13 @@ export default function ProductPage() {
         setQuantity(prev => (prev > 1 ? prev - 1 : 1))
     }
 
+    // Calculate the total price based on quantity
+    const totalPrice = product.price * quantity
+
     return (
         <div className="flex flex-col pb-20 md:pb-6 md:flex-row gap-8 py-6">
+           
+            
             <div className="w-full md:w-1/2">
                 <div className="w-full mb-1">
                     <BackButton />
@@ -89,7 +100,7 @@ export default function ProductPage() {
                         size="lg"
                     >
                         <ShoppingCart className="mr-2 h-5 w-5" />
-                        Ajouter
+                        Ajouter ({totalPrice} FCFA)
                     </Button>
                 </div>
             </div>
@@ -122,7 +133,7 @@ export default function ProductPage() {
                     size="lg"
                 >
                     <ShoppingCart className="mr-2 h-5 w-5" />
-                    Ajouter
+                    Ajouter ({totalPrice} FCFA)
                 </Button>
             </div>
         </div>
