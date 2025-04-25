@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { ShoppingCart, Plus, Minus } from 'lucide-react'
 import { useState } from 'react'
 import { BackButton } from '@/components/ui/back-button'
+import { ShareButton } from '@/components/ui/share-button'
 import { useCartStore } from '@/store/cart-store'
 import { toast } from 'sonner'
 
@@ -44,19 +45,24 @@ export default function ProductPage() {
     const totalPrice = product.price * quantity
 
     return (
-        <div className="flex flex-col pb-20 md:pb-6 md:flex-row gap-8 py-6">
+        <div className="flex flex-col pb-32 md:pb-6 md:flex-row gap-8 py-6">
             <div className="w-full md:w-1/2">
                 <div className="w-full mb-1">
-                    <BackButton />
+                    <BackButton className="" />
                 </div>
                 <ProductImagesCarousel images={product.images} />
             </div>
             
             <div className="w-full md:w-1/2 space-y-6">
-                <div>
+                <div className="flex items-center justify-between">
                     <h1 className="text-3xl font-bold">{product.name}</h1>
-                    <p className="text-2xl font-semibold mt-2">{product.price} FCFA</p>
+                    <ShareButton 
+                        url={`/product/${product.id}`} 
+                        title={product.name} 
+                    />
                 </div>
+                
+                <p className="text-2xl font-semibold">{product.price} FCFA</p>
                 
                 <div className="py-6">
                     <div className="prose max-w-none">
@@ -104,27 +110,7 @@ export default function ProductPage() {
             </div>
             
             {/* Mobile fixed button - visible only on smaller screens */}
-            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t md:hidden z-10">
-                <div className="flex items-center justify-between mb-2">
-                    <span className="font-medium">Quantité:</span>
-                    <div className="flex items-center border rounded-md">
-                        <button 
-                            onClick={decrementQuantity}
-                            className="px-2 py-1 border-r hover:bg-gray-100"
-                            aria-label="Decrease quantity"
-                        >
-                            <Minus className="h-4 w-4" />
-                        </button>
-                        <span className="px-3 py-1 text-center min-w-[2.5rem]">{quantity}</span>
-                        <button 
-                            onClick={incrementQuantity}
-                            className="px-2 py-1 border-l hover:bg-gray-100"
-                            aria-label="Increase quantity"
-                        >
-                            <Plus className="h-4 w-4" />
-                        </button>
-                    </div>
-                </div>
+            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t md:hidden z-10 mb-[60px]">
                 <Button 
                     onClick={handleAddToCart} 
                     className="w-full py-6"
