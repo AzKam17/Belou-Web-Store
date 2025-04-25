@@ -4,6 +4,8 @@ import { useParams } from 'next/navigation'
 import { useGetProducts, useGetStore } from '@/data'
 import { useSubDomain } from '@/hooks/useSubDomain'
 import { ProductImagesCarousel } from '@/components/views/products/product-images-carousel'
+import { Button } from '@/components/ui/button'
+import { ShoppingCart } from 'lucide-react'
 
 export default function ProductPage() {
     const params = useParams()
@@ -14,6 +16,12 @@ export default function ProductPage() {
     const product = productsData?.find(p => p.id === params.id)
 
     if (!product) return <div>Product not found</div>
+
+    const handleAddToCart = () => {
+        // Here you would implement the logic to add the product to the cart
+        // This could involve updating a context, local storage, or making an API call
+        console.log('Adding to cart:', product)
+    }
 
     return (
         <div className="flex flex-col md:flex-row gap-8 py-6">
@@ -35,6 +43,17 @@ export default function ProductPage() {
                             <p className="text-gray-500 italic">pas de description</p>
                         )}
                     </div>
+                </div>
+                
+                <div>
+                    <Button 
+                        onClick={handleAddToCart} 
+                        className="w-full py-6"
+                        size="lg"
+                    >
+                        <ShoppingCart className="mr-2 h-5 w-5" />
+                        Ajouter
+                    </Button>
                 </div>
             </div>
         </div>
