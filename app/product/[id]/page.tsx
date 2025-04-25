@@ -7,6 +7,7 @@ import { ProductImagesCarousel } from '@/components/views/products/product-image
 import { Button } from '@/components/ui/button'
 import { ShoppingCart, Plus, Minus } from 'lucide-react'
 import { useState } from 'react'
+import { BackButton } from '@/components/ui/back-button'
 
 export default function ProductPage() {
     const params = useParams()
@@ -36,6 +37,9 @@ export default function ProductPage() {
     return (
         <div className="flex flex-col pb-20 md:pb-6 md:flex-row gap-8 py-6">
             <div className="w-full md:w-1/2">
+                <div className="w-full mb-1">
+                    <BackButton />
+                </div>
                 <ProductImagesCarousel images={product.images} />
             </div>
             
