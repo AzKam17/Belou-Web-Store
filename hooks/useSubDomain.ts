@@ -7,16 +7,10 @@ export function useSubDomain(): string {
 
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
-			const mainDomain = process.env.NEXT_PUBLIC_MAIN_DOMAIN
 			const host = window.location.hostname
+			const parts = host.split('.')
 
-			if (mainDomain && host.endsWith(mainDomain)) {
-				const sub = host.replace(`.${mainDomain}`, '')
-				// Avoid setting the whole domain if no subdomain exists
-				if (sub !== host) {
-					setSubdomain(sub)
-				}
-			}
+			setSubdomain(parts[0])
 		}
 	}, [])
 
