@@ -17,7 +17,7 @@ export function Header() {
 
 	if (isPending || isStoreImgPending) return <></>
 
-	return <div className="flex flex-col items-center gap-3 py-4">
+	return <div className="flex flex-col items-center gap-3 py-4 w-full">
 		<Avatar className="h-32 w-32 border border-black">
 			<AvatarImage src={storeImg} />
 			<AvatarFallback>B</AvatarFallback>

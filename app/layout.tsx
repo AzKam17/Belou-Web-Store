@@ -30,10 +30,20 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <div className="mx-auto w-full max-w-5xl px-4 pt-4 sm:px-6 lg:px-8">
-            <Header />
-            <hr className="mt-4" />
-            {children}
+          <div className="flex flex-col min-h-screen">
+            <div className="flex-grow mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+              <Header />
+              <div className="w-full border-b mb-4"></div>
+              {children}
+            </div>
+            
+            <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+              <footer className="py-4 border-t mt-auto">
+                <div className="flex justify-end">
+                  <p className="text-sm text-gray-500">fourni par Belou</p>
+                </div>
+              </footer>
+            </div>
           </div>
         </Providers>
       </body>

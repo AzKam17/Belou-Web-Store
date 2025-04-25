@@ -32,7 +32,7 @@ export default function ProductPage() {
                         {product.description ? (
                             <p className="text-gray-700 whitespace-pre-wrap">{product.description}</p>
                         ) : (
-                            <p className="text-gray-500 italic">Pas de description</p>
+                            <p className="text-gray-500 italic">pas de description</p>
                         )}
                     </div>
                 </div>
