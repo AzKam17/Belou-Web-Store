@@ -52,7 +52,7 @@ export function ShareButton({
         setCopied(false)
       }, 2000)
     } catch (err) {
-      toast.error('Impossible de copier le lien')
+      toast.error(`Impossible de copier le lien ${err}`)
     }
   }
 

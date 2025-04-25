@@ -32,3 +32,6 @@ export const ListProductsView = React.memo(function() {
 		</div>
 	)
 })
+
+
+ListProductsView.displayName = 'ListProductsView'

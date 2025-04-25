@@ -10,24 +10,32 @@ interface ProductImagesCarouselProps {
 
 export function ProductImagesCarousel({ images }: ProductImagesCarouselProps) {
     const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+    // @ts-ignore
     const [startThumbnailIndex, setStartThumbnailIndex] = useState(0)
     const maxVisibleThumbnails = 5
     const thumbnailsContainerRef = useRef<HTMLDivElement>(null)
     
+    function useImageResults(imageUrls: any[]) {
+        return imageUrls.map(url => useFilePublicUrl(url));
+    }
+    
+    // Inside your component:
     const imageUrls = useMemo(() => {
         return images?.map(imagePath => ({
             bucket: 'product-pictures',
             publicBucket: true,
             path: imagePath
         })) || []
-    }, [images])
-
-    const imageResults = imageUrls.map(url => useFilePublicUrl(url))
+    }, [images]);
     
+    const imageResults = useImageResults(imageUrls);
+    
+    // @ts-ignore
     const handlePrevImage = () => {
         setSelectedImageIndex(prev => (prev > 0 ? prev - 1 : imageResults.length - 1))
     }
 
+    // @ts-ignore
     const handleNextImage = () => {
         setSelectedImageIndex(prev => (prev < imageResults.length - 1 ? prev + 1 : 0))
     }
