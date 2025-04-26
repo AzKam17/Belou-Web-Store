@@ -147,7 +147,7 @@ export default function ProductPage() {
             
             {/* Mobile fixed button - visible only on smaller screens */}
             {!showLoading && (
-                <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t md:hidden z-10 mb-[60px]">
+                <div className="fixed bottom-0 left-0 right-0 p-4 md:hidden z-10 mb-[60px]">
                     <Button 
                         onClick={handleAddToCart} 
                         className="w-full py-6"
