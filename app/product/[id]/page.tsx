@@ -28,7 +28,13 @@ export default function ProductPage() {
     const handleAddToCart = () => {
         if (!product) return
         
-        addItem(product.id, quantity)
+        addItem({
+            productId: product.id,
+            price: product.price,
+            image: product.images[0],
+            name: product.name,
+            quantity,
+        })
         toast.success(`${product.name} ajouté au panier`)
     }
 

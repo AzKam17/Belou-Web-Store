@@ -3,6 +3,9 @@ import { persist } from 'zustand/middleware'
 
 // Define the type for cart items
 export type CartItem = {
+  name: string
+  image: string
+  price: number
   productId: string
   quantity: number
 }
@@ -10,7 +13,7 @@ export type CartItem = {
 // Define the store type
 type CartStore = {
   items: CartItem[]
-  addItem: (productId: string, quantity: number) => void
+  addItem: (params: CartItem) => void
   removeItem: (productId: string) => void
   updateQuantity: (productId: string, quantity: number) => void
   clearCart: () => void
@@ -23,8 +26,9 @@ export const useCartStore = create<CartStore>()(
       items: [],
       
       // Add an item to the cart
-      addItem: (productId: string, quantity: number) => 
+      addItem: (param: CartItem) => 
         set((state) => {
+          const { name, image, productId, quantity, price } = param
           const existingItem = state.items.find(item => item.productId === productId)
           
           if (existingItem) {
@@ -39,7 +43,7 @@ export const useCartStore = create<CartStore>()(
           } else {
             // Otherwise add new item
             return {
-              items: [...state.items, { productId, quantity }]
+              items: [...state.items, { name, image, productId, quantity, price }]
             }
           }
         }),
