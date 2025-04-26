@@ -5,6 +5,7 @@ import { Providers } from '@/components/providers/'
 import { Toaster } from "@/components/ui/sonner"
 import Image from 'next/image'
 import { MainContent } from '@/components/views/main-content'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -55,6 +56,7 @@ export default function RootLayout({
             </div>
           </div>
           <Toaster />
+          <SpeedInsights />
         </Providers>
       </body>
     </html>
