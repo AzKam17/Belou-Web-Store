@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { useSubDomain } from '@/hooks/useSubDomain'
+import React from 'react'
+import { useSubDomain, useMinimumLoadingTime } from '@/hooks'
 import { useGetStore } from '@/data'
 import { useGetProducts } from '@/data/products.data'
 import { ListProductImageView } from '@/components/views/products/list-product-image.view'
@@ -13,25 +13,9 @@ export const ListProductsView = React.memo(function() {
 	const { isPending: isStorePending, data: storeData } = useGetStore(subdomain)
 	const { isPending: isProductsPending, data: productsData } = useGetProducts(storeData?.id)
 	
-	// Add state to track minimum loading time
-	const [showLoading, setShowLoading] = useState(true)
 	const isDataLoading = isStorePending || isProductsPending || !productsData
-	
-	// Effect to handle minimum loading time (500ms)
-	useEffect(() => {
-		if (!isDataLoading) {
-			// Data is loaded, but we'll keep showing loading state for at least 500ms
-			const timer = setTimeout(() => {
-				setShowLoading(false)
-			}, 500)
-			
-			return () => clearTimeout(timer)
-		} else {
-			setShowLoading(true)
-		}
-	}, [isDataLoading])
+	const showLoading = useMinimumLoadingTime(isDataLoading)
 
-	// Use showLoading instead of direct loading checks
 	if (showLoading) return <ProductsLoadingSkeleton />
 
 	return (

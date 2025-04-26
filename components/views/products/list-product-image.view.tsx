@@ -1,10 +1,11 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import { useFilePublicUrl } from '@/data/file.data'
 import { Guard } from '@/utils'
 import { Skeleton } from '@/components/ui/skeleton'
+import { useMinimumLoadingTime } from '@/hooks'
 
 export type ListProductImageView = {
 	imagePath: string
@@ -17,26 +18,10 @@ export const ListProductImageView = React.memo((props: ListProductImageView) => 
 		path: props.imagePath,
 	})
 	
-	// Add state to track minimum loading time
-	const [showLoading, setShowLoading] = useState(true)
-	
-	// Effect to handle minimum loading time (500ms)
-	useEffect(() => {
-		if (!isPending && data) {
-			// Data is loaded, but we'll keep showing loading state for at least 500ms
-			const timer = setTimeout(() => {
-				setShowLoading(false)
-			}, 500)
-			
-			return () => clearTimeout(timer)
-		} else {
-			setShowLoading(true)
-		}
-	}, [isPending, data])
+	const showLoading = useMinimumLoadingTime(isPending || !data)
 
 	if (Guard.isEmpty(props.imagePath)) return <></>
 	
-	// Use showLoading instead of isPending for UI rendering decisions
 	if (showLoading) {
 		return (
 			<div className="aspect-square w-full overflow-hidden rounded-xl bg-muted/10">

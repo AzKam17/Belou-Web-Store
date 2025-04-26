@@ -2,11 +2,11 @@
 
 import { useParams } from 'next/navigation'
 import { useGetProducts, useGetStore } from '@/data'
-import { useSubDomain } from '@/hooks/useSubDomain'
+import { useSubDomain, useMinimumLoadingTime } from '@/hooks'
 import { ProductImagesCarousel } from '@/components/views/products/product-images-carousel'
 import { Button } from '@/components/ui/button'
 import { ShoppingCart, Plus, Minus } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { BackButton } from '@/components/ui/back-button'
 import { ShareButton } from '@/components/ui/share-button'
 import { useCartStore } from '@/store/cart-store'
@@ -21,31 +21,14 @@ export default function ProductPage() {
     const [quantity, setQuantity] = useState(1)
     const addItem = useCartStore(state => state.addItem)
     
-    // Add state to track minimum loading time
-    const [showLoading, setShowLoading] = useState(true)
     const isDataLoading = isStoreLoading || isProductsLoading || !productsData
-    
-    // Effect to handle minimum loading time (500ms)
-    useEffect(() => {
-        if (!isDataLoading) {
-            // Data is loaded, but we'll keep showing loading state for at least 500ms
-            const timer = setTimeout(() => {
-                setShowLoading(false)
-            }, 500)
-            
-            return () => clearTimeout(timer)
-        } else {
-            setShowLoading(true)
-        }
-    }, [isDataLoading])
+    const showLoading = useMinimumLoadingTime(isDataLoading)
     
     const product = productsData?.find(p => p.id === params.id)
 
     const handleAddToCart = () => {
         if (!product) return
         
-        console.log('Adding to cart:', product, 'Quantity:', quantity)
-        console.log('add to cart')
         addItem(product.id, quantity)
         toast.success(`${product.name} ajouté au panier`)
     }
@@ -58,10 +41,8 @@ export default function ProductPage() {
         setQuantity(prev => (prev > 1 ? prev - 1 : 1))
     }
 
-    // Calculate the total price based on quantity
     const totalPrice = product ? product.price * quantity : 0
 
-    // Use showLoading instead of isLoading for UI rendering decisions
     if (!showLoading && !product) return <div>Product not found</div>
 
     return (
