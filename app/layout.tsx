@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Providers } from '@/components/providers/'
-import { Header } from '@/components/views'
 import { Toaster } from "@/components/ui/sonner"
 import Image from 'next/image'
+import { MainContent } from '@/components/views/main-content'
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -34,15 +34,15 @@ export default function RootLayout({
         <Providers>
           <div className="flex flex-col min-h-screen">
             <div className="flex-grow mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
-              <Header />
-              <div className="w-full border-b mb-4"></div>
-              {children}
+              <MainContent>
+                {children}
+              </MainContent>
             </div>
             
             <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
               <footer className="py-4 border-t mt-auto">
                 <div className="flex justify-end items-center">
-                  <p className="text-sm text-gray-500">fourni par{' '}<span className="font-bold">Belou</span></p>
+                  <p className="text-sm text-gray-500">fourni par <strong>Belou</strong></p>
                   <Image 
                     src="/belou.svg" 
                     alt="Belou Logo" 
