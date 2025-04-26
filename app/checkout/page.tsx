@@ -30,7 +30,7 @@ export default function CheckoutPage() {
     }
 
     return (
-        <div className="space-y-6 pb-30 max-w-lg mx-auto">
+        <div className="space-y-6 pb-30">
             <BackButton className="" />
             <h1 className="text-2xl font-bold">Confirmation de la commande</h1>
             <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
