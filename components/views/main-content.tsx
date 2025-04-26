@@ -16,7 +16,7 @@ export function MainContent({ children }: MainContentProps) {
   const subdomain = useSubDomain()
   const [currentPlatform, setCurrentPlatform] = useState(0)
   const [animationState, setAnimationState] = useState('visible')
-  const { data: storeExists } = useCheckStoreExists(subdomain)
+  const { isPending, data: storeExists } = useCheckStoreExists(subdomain)
   
   const appStoreUrl = process.env.NEXT_PUBLIC_APP_STORE_URL   || 'https://belou.store'
   const playStoreUrl = process.env.NEXT_PUBLIC_PLAY_STORE_URL || 'https://belou.store'
@@ -53,7 +53,20 @@ export function MainContent({ children }: MainContentProps) {
     }
   }, [subdomain, storeExists, platforms.length])
   
-  // Show landing page if no subdomain or store doesn't exist
+  if(isPending) {
+    return (
+      <div className="flex justify-center items-center min-h-[80vh]">
+        <Image 
+          src="/loader.gif" 
+          alt="Loading..." 
+          width={80} 
+          height={80} 
+          priority
+        />
+      </div>
+    )
+  }
+
   if (Guard.isEmpty(subdomain) || !storeExists) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[80vh] py-12 px-6 sm:px-4 text-center">
