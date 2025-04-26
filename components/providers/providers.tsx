@@ -2,6 +2,9 @@
 
 import React from 'react'
 
+import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
+import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister'
+
 import {
     QueryClient,
     QueryClientProvider,
@@ -9,18 +12,30 @@ import {
 
 import {ReactNode, useState} from 'react'
 
-export function Providers({children}: { children: ReactNode }) {
-    const [queryClient] = useState(() => new QueryClient({
-        defaultOptions: {
-            queries: {
-                gcTime: 1000 * 60 * 5, // 5 minutes
-            },
-        }
-    }))
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            gcTime: 1000 * 60 * 5,
+            staleTime: 5 * 60 * 1000,
+            refetchOnWindowFocus: false,
+            refetchOnMount: false,
+            refetchOnReconnect: false,
+        },
+    },
+})
+  
+const persister = createSyncStoragePersister({
+    storage: window.localStorage,
+})
 
+  
+export function Providers({children}: { children: ReactNode }) {
     return (
-        <QueryClientProvider client={queryClient}>
+        <PersistQueryClientProvider
+            client={queryClient}
+            persistOptions={{ persister }}
+        >
             {children}
-        </QueryClientProvider>
+        </PersistQueryClientProvider>
     )
 }

@@ -25,6 +25,8 @@ export function useGetStore(storeId: string) {
 
 export function useCheckStoreExists(storeId: string) {
 	return useQuery({
+		gcTime: 30 * 60 * 1000,
+		staleTime: 5 * 60 * 1000, 
 		enabled: !Guard.isEmpty(storeId),
 		queryKey: [`store_exists_${storeId}`],
 		queryFn: async function() {
