@@ -1,6 +1,9 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/navigation' // Import useRouter
+import Link from 'next/link'
+import { BackButton } from '@/components/ui/back-button'
 
 type FormData = {
     fullName: string
@@ -13,15 +16,22 @@ type FormData = {
 
 export default function CheckoutPage() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>()
+    const router = useRouter() // Initialize router
 
     const onSubmit = (data: FormData) => {
-        // Handle form submission logic here
-        alert('Order information submitted!')
-        reset()
+        // Handle form submission logic here (e.g., send data to backend)
+        console.log('Order information submitted:', data)
+
+        // Redirect to the order success page
+        router.push('/order-success')
+
+        // Optionally reset the form if needed, though redirection might make it unnecessary
+        // reset()
     }
 
     return (
         <div className="space-y-6 pb-30 max-w-lg mx-auto">
+            <BackButton className="" />
             <h1 className="text-2xl font-bold">Confirmation de la commande</h1>
             <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
                 <div>
