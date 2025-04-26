@@ -108,6 +108,7 @@ export function MainContent({ children }: MainContentProps) {
                 theme="dark"
                 width={180}
                 height={50}
+                className={"tp-button-apple-style"}
               />
               
               <GooglePlayButton
@@ -115,6 +116,7 @@ export function MainContent({ children }: MainContentProps) {
                 theme="dark"
                 width={180}
                 height={50}
+                className={"tp-button-play-style"}
               /> 
             </div>
           </div>
