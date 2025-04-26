@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client'
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister'
@@ -24,12 +24,20 @@ const queryClient = new QueryClient({
     },
 })
   
-const persister = createSyncStoragePersister({
-    storage: window.localStorage,
-})
-
-  
 export function Providers({children}: { children: ReactNode }) {
+    const [persister, setPersister] = useState<any>(null)
+
+    useEffect(() => {
+        const localPersister = createSyncStoragePersister({
+            storage: window.localStorage,
+        })
+        setPersister(localPersister)
+    }, [])
+
+    if (!persister) {
+        return null 
+    }
+
     return (
         <PersistQueryClientProvider
             client={queryClient}
