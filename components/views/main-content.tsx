@@ -53,7 +53,7 @@ export function MainContent({ children }: MainContentProps) {
     }
   }, [subdomain, storeExists, platforms.length])
   
-  if(isPending) {
+  /* if(isPending) {
     return (
       <div className="flex justify-center items-center min-h-[80vh]">
         <Image 
@@ -65,7 +65,7 @@ export function MainContent({ children }: MainContentProps) {
         />
       </div>
     )
-  }
+  } */
 
   if (Guard.isEmpty(subdomain) || !storeExists) {
     return (
