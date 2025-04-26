@@ -6,6 +6,7 @@ import { Header } from '@/components/views'
 import { Guard } from '@/utils'
 import Image from 'next/image'
 import { AppStoreButton, GooglePlayButton } from 'react-mobile-app-button'
+import { useCheckStoreExists } from '@/data/store.data'
 
 interface MainContentProps {
   children: React.ReactNode
@@ -15,10 +16,10 @@ export function MainContent({ children }: MainContentProps) {
   const subdomain = useSubDomain()
   const [currentPlatform, setCurrentPlatform] = useState(0)
   const [animationState, setAnimationState] = useState('visible')
+  const { data: storeExists } = useCheckStoreExists(subdomain)
   
-  // Get app store links from environment variables
-  const appStoreUrl = process.env.NEXT_PUBLIC_APP_STORE_URL || 'https://apps.apple.com/app/belou'
-  const playStoreUrl = process.env.NEXT_PUBLIC_PLAY_STORE_URL || 'https://play.google.com/store/apps/details?id=app.belou'
+  const appStoreUrl = process.env.NEXT_PUBLIC_APP_STORE_URL   || 'https://belou.store'
+  const playStoreUrl = process.env.NEXT_PUBLIC_PLAY_STORE_URL || 'https://belou.store'
   
   const platforms = [
     'WhatsApp',
@@ -30,7 +31,7 @@ export function MainContent({ children }: MainContentProps) {
   ]
   
   useEffect(() => {
-    if (Guard.isEmpty(subdomain)) {
+    if (Guard.isEmpty(subdomain) || !storeExists) {
       const interval = setInterval(() => {
         // Start fade out animation
         setAnimationState('fadeOut')
@@ -50,9 +51,10 @@ export function MainContent({ children }: MainContentProps) {
       
       return () => clearInterval(interval)
     }
-  }, [subdomain, platforms.length])
+  }, [subdomain, storeExists, platforms.length])
   
-  if (Guard.isEmpty(subdomain)) {
+  // Show landing page if no subdomain or store doesn't exist
+  if (Guard.isEmpty(subdomain) || !storeExists) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[80vh] py-12 px-6 sm:px-4 text-center">
         <div className="max-w-md">

@@ -22,3 +22,28 @@ export function useGetStore(storeId: string) {
 		},
 	})
 }
+
+export function useCheckStoreExists(storeId: string) {
+	return useQuery({
+		enabled: !Guard.isEmpty(storeId),
+		queryKey: [`store_exists_${storeId}`],
+		queryFn: async function() {
+			try {
+				const { data, error } = await supabase
+					.from(TABLE_NAME)
+					.select('id')
+					.eq('id', storeId)
+					.single()
+					
+				if (error) {
+					return false
+				}
+				
+				return !Guard.isEmpty(data)
+			} catch (error) {
+				console.error('Error checking store existence:', error)
+				return false
+			}
+		},
+	})
+}
