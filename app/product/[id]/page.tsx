@@ -44,7 +44,7 @@ export default function ProductPage() {
     const handleAddToCart = () => {
         if (!product) return
         
-        const isFirstAdd = cartItems.length === 0
+        const isProductInCart = cartItems.some(item => item.productId === product.id)
         
         addItem({
             productId: product.id,
@@ -54,7 +54,7 @@ export default function ProductPage() {
             quantity,
         })
         
-        if (isFirstAdd) {
+        if (!isProductInCart) {
             setShowCartModal(true)
         } else {
             toast.success(`${product.name} ajouté au panier`)
