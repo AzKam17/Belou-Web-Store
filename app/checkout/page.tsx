@@ -50,7 +50,13 @@ export default function CheckoutPage() {
                     <input
                         type="tel"
                         id="phoneNumber"
-                        {...register('phoneNumber', { required: 'Le numéro de téléphone est requis' })}
+                        {...register('phoneNumber', {
+                            required: 'Le numéro de téléphone est requis',
+                            pattern: {
+                                value: /^[0-9]{10}$/,
+                                message: 'Le numéro doit contenir exactement 10 chiffres'
+                            }
+                        })}
                         className="w-full border rounded px-3 py-2"
                         placeholder="Ex: 0700000000"
                     />
