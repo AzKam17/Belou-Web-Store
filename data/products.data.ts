@@ -21,3 +21,28 @@ export function useGetProducts(storeId: string) {
 		},
 	})
 }
+
+/**
+ * Hook to fetch a single product by its ID
+ * @param productId The ID of the product to fetch
+ * @returns Query result containing the product data
+ */
+export function useGetProduct(productId: string) {
+	return useQuery({
+		enabled: !Guard.isEmpty(productId),
+		queryKey: [`product_${productId}`],
+		queryFn: async function() {
+			const { data, error } = await supabase
+				.from(TABLE_NAME)
+				.select('*')
+				.eq('id', productId)
+				.single()
+
+			if (error) {
+				throw error
+			}
+
+			return data
+		},
+	})
+}
