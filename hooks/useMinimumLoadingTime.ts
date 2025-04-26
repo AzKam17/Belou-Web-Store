@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react'
  */
 export function useMinimumLoadingTime(
   isLoading: boolean,
-  minimumLoadingTime: number = 500
+  minimumLoadingTime: number = 200
 ): boolean {
   const [showLoading, setShowLoading] = useState<boolean>(true)
   

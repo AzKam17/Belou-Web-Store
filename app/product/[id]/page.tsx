@@ -1,8 +1,8 @@
 'use client'
 
 import { useParams } from 'next/navigation'
-import { useGetProducts, useGetStore } from '@/data'
-import { useSubDomain, useMinimumLoadingTime } from '@/hooks'
+import { useGetProduct } from '@/data'
+import { useMinimumLoadingTime } from '@/hooks'
 import { ProductImagesCarousel } from '@/components/views/products/product-images-carousel'
 import { Button } from '@/components/ui/button'
 import { ShoppingCart, Plus, Minus } from 'lucide-react'
@@ -15,16 +15,15 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 export default function ProductPage() {
     const params = useParams()
-    const subdomain = useSubDomain()
-    const { data: storeData, isLoading: isStoreLoading } = useGetStore(subdomain)
-    const { data: productsData, isLoading: isProductsLoading } = useGetProducts(storeData?.id)
+    const productId = params.id as string
+    
+    const { data: product, isLoading: isProductLoading } = useGetProduct(productId)
+    
     const [quantity, setQuantity] = useState(1)
     const addItem = useCartStore(state => state.addItem)
     
-    const isDataLoading = isStoreLoading || isProductsLoading || !productsData
+    const isDataLoading = isProductLoading || !product
     const showLoading = useMinimumLoadingTime(isDataLoading)
-    
-    const product = productsData?.find(p => p.id === params.id)
 
     const handleAddToCart = () => {
         if (!product) return
