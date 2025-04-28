@@ -36,6 +36,7 @@ export function useCreateOrder() {
 
 export function useGetOrder(orderId: string) {
     return useQuery({
+        enabled: !!orderId,
         queryKey: [`order_${orderId}`, orderId],
         queryFn: async () => {
             const { data, error } = await supabase
