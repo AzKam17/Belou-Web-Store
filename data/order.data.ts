@@ -1,5 +1,5 @@
 import { supabase } from '@/utils'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueries, useQuery } from '@tanstack/react-query'
 
 type Order = {
     full_name: string,
@@ -32,4 +32,22 @@ export function useCreateOrder() {
             return data
         },
     })
+}
+
+export function useGetOrder(orderId: string) {
+    return useQuery({
+        queryKey: [`order_${orderId}`, orderId],
+        queryFn: async () => {
+            const { data, error } = await supabase
+                .from('orders')
+                .select('*')
+                .eq('id', orderId)
+                .single()
+            if (error) {
+                throw error
+            }
+            return data
+        },
+    })
+
 }
