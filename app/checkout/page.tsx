@@ -4,29 +4,62 @@ import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation' // Import useRouter
 import Link from 'next/link'
 import { BackButton } from '@/components/ui/back-button'
+import { useCreateOrder } from '@/data'
+import { useSubDomain } from '@/hooks'
+import { useCartStore } from '@/store/cart-store'
+import { toast } from 'sonner' 
+import * as Sentry from '@sentry/nextjs'
 
 type FormData = {
-    fullName: string
-    phoneNumber: string
-    address: string
-    city: string
-    paymentMethod: string
-    notes?: string
+    full_name: string,
+    phone_number: string,
+    address: string,
+    city: string,
+    payment_method: string,
+    notes?: string,
 }
 
 export default function CheckoutPage() {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>()
-    const router = useRouter() // Initialize router
+    const router = useRouter() 
+    const subdomain = useSubDomain()
+    const { items, clearCart } = useCartStore()
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
 
+    const {mutate, isPending, isError, data, error} = useCreateOrder()
+    
     const onSubmit = (data: FormData) => {
         // Handle form submission logic here (e.g., send data to backend)
         console.log('Order information submitted:', data)
 
-        // Redirect to the order success page
-        router.push('/order-success')
-
-        // Optionally reset the form if needed, though redirection might make it unnecessary
-        // reset()
+        mutate({
+            ...data,
+            store_id: subdomain,
+            forwarded_total: items.reduce((total, item) => total + item.price * item.quantity, 0),
+            cart_items: items.map(item => ({
+                product_id: item.productId,
+                quantity: item.quantity,
+                price: item.price,
+            })),
+        }, {
+            onSuccess: (orderData) => {
+                clearCart()
+                router.push(`/order-success/${orderData.id}`)
+            },
+            onError: (err) => {
+                console.log('Error creating order:', err)
+                
+                Sentry.captureException(err, {
+                    extra: {
+                        formData: data,
+                        storeId: subdomain,
+                        cartItemCount: items.length,
+                        totalAmount: items.reduce((total, item) => total + item.price * item.quantity, 0)
+                    }
+                })
+                
+                toast.error('Une erreur est survenue. Veuillez réessayer plus tard.')
+            }
+        })
     }
 
     return (
@@ -35,22 +68,22 @@ export default function CheckoutPage() {
             <h1 className="text-2xl font-bold">Confirmation de la commande</h1>
             <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <label htmlFor="fullName" className="block font-medium mb-1">Nom complet</label>
+                    <label htmlFor="full_name" className="block font-medium mb-1">Nom complet</label>
                     <input
                         type="text"
-                        id="fullName"
-                        {...register('fullName', { required: 'Le nom complet est requis' })}
+                        id="full_name"
+                        {...register('full_name', { required: 'Le nom complet est requis' })}
                         className="w-full border rounded px-3 py-2"
                         placeholder="Votre nom complet"
                     />
-                    {errors.fullName && <span className="text-red-500 text-sm">{errors.fullName.message}</span>}
+                    {errors.full_name && <span className="text-red-500 text-sm">{errors.full_name.message}</span>}
                 </div>
                 <div>
-                    <label htmlFor="phoneNumber" className="block font-medium mb-1">Numéro de téléphone</label>
+                    <label htmlFor="phone_number" className="block font-medium mb-1">Numéro de téléphone</label>
                     <input
                         type="tel"
-                        id="phoneNumber"
-                        {...register('phoneNumber', {
+                        id="phone_number"
+                        {...register('phone_number', {
                             required: 'Le numéro de téléphone est requis',
                             pattern: {
                                 value: /^[0-9]{10}$/,
@@ -60,7 +93,7 @@ export default function CheckoutPage() {
                         className="w-full border rounded px-3 py-2"
                         placeholder="Ex: 0700000000"
                     />
-                    {errors.phoneNumber && <span className="text-red-500 text-sm">{errors.phoneNumber.message}</span>}
+                    {errors.phone_number && <span className="text-red-500 text-sm">{errors.phone_number.message}</span>}
                 </div>
                 <div>
                     <label htmlFor="address" className="block font-medium mb-1">Adresse de livraison</label>
@@ -102,7 +135,7 @@ export default function CheckoutPage() {
                             type="radio"
                             id="cashOnDelivery"
                             value="cashOnDelivery"
-                            {...register('paymentMethod', { required: true })}
+                            {...register('payment_method', { required: true })}
                             checked
                             readOnly
                             className="accent-primary"
@@ -112,9 +145,9 @@ export default function CheckoutPage() {
                 </div>
                 <button
                     type="submit"
-                    className="w-full bg-primary text-white py-3 rounded-md font-semibold hover:bg-primary/90 transition"
+                    className={`w-full bg-primary text-white py-3 rounded-md font-semibold hover:bg-primary/90 transition ${isPending? 'cursor-not-allowed' : ''}`}
                 >
-                    Confirmer la commande
+                    {isPending ? 'En cours...' : 'Passer la commande'}
                 </button>
             </form>
         </div>
