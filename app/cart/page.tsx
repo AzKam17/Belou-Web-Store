@@ -5,6 +5,7 @@ import { BackButton } from '@/components/ui/back-button'
 import { ListProductCartView } from '@/components/views/products/list-product-cart.view'
 import { Metadata } from 'next'
 import { META } from '@/utils'
+import { ConfirmCartButton } from '@/components/views/cart/confirm.cart.button'
 
 export async function generateMetadata(): Promise<Metadata> {
     return META.DEFAULT_CART
@@ -17,13 +18,7 @@ export default function CartPage() {
             <h1 className="text-2xl font-bold">Mon Panier</h1>
             <ListProductCartView />
             <div className="pt-4">
-                <Link href="/checkout">
-                    <Button
-                        className="w-full sm:w-auto sm:px-6 sm:py-2 sm:text-base sm:float-right"
-                    >
-                        Confirmer ma commande
-                    </Button>
-                </Link>
+                <ConfirmCartButton />
             </div>
         </div>
     )
