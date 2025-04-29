@@ -20,4 +20,10 @@ export const META = {
 			description: 'Découvrez notre boutique en ligne.',
 		},
 	},
+
+	DEFAULT_CART: {
+		title: 'Mon panier',
+		description: 'Mon panier.',
+		applicationName: 'Belou Store',
+	}
 }

@@ -1,9 +1,14 @@
-'use client'
 
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { BackButton } from '@/components/ui/back-button'
 import { ListProductCartView } from '@/components/views/products/list-product-cart.view'
+import { Metadata } from 'next'
+import { META } from '@/utils'
+
+export async function generateMetadata(): Promise<Metadata> {
+    return META.DEFAULT_CART
+}
 
 export default function CartPage() {
     return (
