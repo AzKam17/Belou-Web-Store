@@ -25,5 +25,11 @@ export const META = {
 		title: 'Mon panier',
 		description: 'Mon panier.',
 		applicationName: 'Belou Store',
-	}
+	},
+
+	DEFAULT_CHECKOUT: {
+		title: 'Mes informations',
+		description: 'Confirmer mes informations.',
+		applicationName: 'Belou Store',
+	},
 }
