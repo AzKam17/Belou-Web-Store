@@ -3,7 +3,8 @@ import { Metadata } from 'next'
 import { Guard, META } from '@/utils'
 import { ProductPageE } from '@/components/views/products/product.page'
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+// @ts-ignore
+export async function generateMetadata({ params }): Promise<Metadata> {
     try {
         const productId = params.id;
 
