@@ -149,6 +149,7 @@ export default function OrderSuccessPageComponent() {
                     <p>Mode de paiement: {data.payment_method === 'cashOnDelivery' ? 'Paiement à la livraison' : data.payment_method}</p>
                     <p className="mt-1">Statut: <span className="font-medium capitalize">{data.status}</span></p>
                     <p className="mt-1">Nous vous contacterons bientôt pour confirmer votre commande.</p>
+                    <p className="mt-4 border-t pt-4">Vous êtes commerçant ? Vendez sur <a href="https://belou.store" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline" style={{ color: '#fe4000' }}>Belou</a> et développez votre activité en ligne !</p>
                 </div>
             </div>
             
