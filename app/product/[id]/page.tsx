@@ -5,7 +5,7 @@ import { ProductPageE } from '@/components/views/products/product.page'
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
     try {
-        const productId = params.id;
+        const productId = await params.id;
 
         const {data, error} = await getProductInfoCache(productId)
         if (error) return META.DEFAULT_PRODUCT

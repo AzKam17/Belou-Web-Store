@@ -6,6 +6,8 @@ import { Toaster } from "@/components/ui/sonner"
 import Image from 'next/image'
 import { MainContent } from '@/components/views/main-content'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Suspense } from 'react'
+import Loading from './loading'
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -36,7 +38,9 @@ export default function RootLayout({
           <div className="flex flex-col min-h-screen">
             <div className="flex-grow mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
               <MainContent>
-                {children}
+                <Suspense fallback={<Loading />}>
+                  {children}
+                </Suspense>
               </MainContent>
             </div>
             
