@@ -33,6 +33,7 @@ export const ListProductImageView = React.memo((props: ListProductImageView) => 
 	return (
 		<div className="aspect-square w-full overflow-hidden rounded-xl bg-muted/10">
 			<Image
+				priority={true}
 				src={data!}
 				width={400}
 				height={400}
