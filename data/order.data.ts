@@ -1,4 +1,4 @@
-import { supabase } from '@/utils'
+import { useSupabase } from '@/utils'
 import { useMutation, useQueries, useQuery } from '@tanstack/react-query'
 
 type Order = {
@@ -20,6 +20,7 @@ type OrderItem = {
 }
 
 export function useCreateOrder() {
+    const supabase = useSupabase()
     return useMutation({
         mutationFn: async (params: Order) => {
             const { data, error } = await supabase
@@ -35,6 +36,7 @@ export function useCreateOrder() {
 }
 
 export function useGetOrder(orderId: string) {
+    const supabase = useSupabase()
     return useQuery({
         enabled: !!orderId,
         queryKey: [`order_${orderId}`, orderId],

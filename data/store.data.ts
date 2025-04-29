@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-import { Guard, supabase } from '@/utils'
+import { Guard, useSupabase } from '@/utils'
 
 const TABLE_NAME = 'stores'
 
 export function useGetStore(storeId: string) {
+    const supabase = useSupabase()
 	return useQuery({
 		enabled: !Guard.isEmpty(storeId),
 		queryKey: [`store_${storeId}`],
@@ -24,6 +25,7 @@ export function useGetStore(storeId: string) {
 }
 
 export function useCheckStoreExists(storeId: string) {
+    const supabase = useSupabase()
 	return useQuery({
 		gcTime: 30 * 60 * 1000,
 		staleTime: 5 * 60 * 1000, 

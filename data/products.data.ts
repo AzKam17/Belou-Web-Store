@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-import { Guard, supabase } from '@/utils'
+import { Guard, useSupabase } from '@/utils'
 
 const TABLE_NAME = 'products'
 
 export function useGetProducts(storeId: string) {
+    const supabase = useSupabase()
 	return useQuery({
 		enabled: !Guard.isEmpty(storeId),
 		queryKey: [`products_${storeId}`],
@@ -28,6 +29,7 @@ export function useGetProducts(storeId: string) {
  * @returns Query result containing the product data
  */
 export function useGetProduct(productId: string) {
+    const supabase = useSupabase()
 	return useQuery({
 		enabled: !Guard.isEmpty(productId),
 		queryKey: [`product_${productId}`],
