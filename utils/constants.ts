@@ -32,4 +32,10 @@ export const META = {
 		description: 'Confirmer mes informations.',
 		applicationName: 'Belou Store',
 	},
+
+	DEFAULT_ORDER_SUCCESS: {
+		title: 'Commande passée',
+		description: 'Merci pour votre commande.',
+		applicationName: 'Belou Store',
+	}
 }
