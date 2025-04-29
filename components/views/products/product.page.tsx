@@ -178,7 +178,7 @@ export function ProductPageE() {
                 </div>
                 
                 {!showLoading && (
-                    <div className="fixed bottom-0 left-0 right-0 p-4 md:hidden z-10 mb-[60px]">
+                    <div className="fixed bottom-0 left-0 bg-white right-0 p-4 md:hidden z-10">
                         <Button 
                             onClick={handleAddToCart} 
                             className="w-full py-6"
