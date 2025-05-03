@@ -18,6 +18,16 @@ export const ListProductsView = React.memo(function() {
 
 	if (showLoading) return <ProductsLoadingSkeleton />
 
+	// Check if there are no products
+	if (!productsData || productsData.length === 0) {
+		return (
+			<div className="flex flex-col items-center justify-center py-16 text-center">
+				<h3 className="text-xl font-medium text-gray-700 mb-2">Aucun produit disponible</h3>
+				<p className="text-gray-500">Les produits seront bientôt ajoutés à cette boutique.</p>
+			</div>
+		)
+	}
+
 	return (
 		<div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-6">
 			{productsData?.map((e, idx) => (
