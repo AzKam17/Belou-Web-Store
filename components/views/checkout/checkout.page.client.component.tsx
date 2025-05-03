@@ -3,11 +3,12 @@
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation' 
 import { BackButton } from '@/components/ui/back-button'
-import { useCreateOrder } from '@/data'
+import { useCreateOrder, useGetStore } from '@/data'
 import { useSubDomain } from '@/hooks'
 import { useCartStore } from '@/store/cart-store'
 import { toast } from 'sonner' 
 import * as Sentry from '@sentry/nextjs'
+import { Skeleton } from '@/components/ui/skeleton'
 
 type FormData = {
     full_name: string,
@@ -24,15 +25,13 @@ export default function CheckoutPageClientComponent() {
     const { items, clearCart } = useCartStore()
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
 
+    const { isPending: isStorePending, data: storeData } = useGetStore(subdomain)
     const {mutate, isPending, isError, data, error} = useCreateOrder()
     
     const onSubmit = (data: FormData) => {
-        // Handle form submission logic here (e.g., send data to backend)
-        console.log('Order information submitted:', data)
-
         mutate({
             ...data,
-            store_id: subdomain,
+            store_id: storeData?.id,
             forwarded_total: items.reduce((total, item) => total + item.price * item.quantity, 0),
             cart_items: items.map(item => ({
                 product_id: item.productId,
@@ -59,6 +58,31 @@ export default function CheckoutPageClientComponent() {
                 toast.error('Une erreur est survenue. Veuillez réessayer plus tard.')
             }
         })
+    }
+
+    if (isStorePending) {
+        return (
+            <div className="space-y-6 pb-30">
+                <BackButton className="" />
+                <Skeleton className="h-8 w-3/4 mb-6" />
+                <div className="space-y-4">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                        <div key={i}>
+                            <Skeleton className="h-5 w-1/3 mb-1" />
+                            <Skeleton className="h-10 w-full rounded" />
+                        </div>
+                    ))}
+                    <div>
+                        <Skeleton className="h-5 w-1/3 mb-1" />
+                        <div className="flex items-center space-x-2">
+                            <Skeleton className="h-4 w-4 rounded-full" />
+                            <Skeleton className="h-5 w-1/2" />
+                        </div>
+                    </div>
+                    <Skeleton className="h-12 w-full rounded-md mt-4" />
+                </div>
+            </div>
+        )
     }
 
     return (

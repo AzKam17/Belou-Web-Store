@@ -2,11 +2,11 @@ import { supabase } from '@/utils'
 import { cache } from 'react'
 
 
-async function getStoreInfo(storeId: string) {
+async function getStoreInfo(storeSlug: string) {
 	return supabase
 		.from('stores')
 		.select('*')
-		.eq('id', storeId)
+		.eq('slug', storeSlug)
 		.single()
 }
 
