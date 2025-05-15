@@ -15,11 +15,11 @@ import {ReactNode, useState} from 'react'
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
-            gcTime: 1000 * 60 * 5,
-            staleTime: 5 * 60 * 1000,
+            gcTime: 1000 * 10,
+            staleTime: 1000 * 10,
             refetchOnWindowFocus: false,
             refetchOnMount: false,
-            refetchOnReconnect: false,
+            refetchOnReconnect: true,
         },
     },
 })
