@@ -16,7 +16,7 @@ export function MainContent({ children }: MainContentProps) {
   const subdomain = useSubDomain()
   const [currentPlatform, setCurrentPlatform] = useState(0)
   const [animationState, setAnimationState] = useState('visible')
-  const { isPending, data: storeExists } = useCheckStoreExists(subdomain)
+  // const { isPending, data: storeExists } = useCheckStoreExists(subdomain)
   
   const appStoreUrl = process.env.NEXT_PUBLIC_APP_STORE_URL   || 'https://belou.store'
   const playStoreUrl = process.env.NEXT_PUBLIC_PLAY_STORE_URL || 'https://belou.store'
@@ -31,7 +31,7 @@ export function MainContent({ children }: MainContentProps) {
   ]
   
   useEffect(() => {
-    if (Guard.isEmpty(subdomain) || !storeExists) {
+    if (Guard.isEmpty(subdomain) /*|| !storeExists */) {
       const interval = setInterval(() => {
         // Start fade out animation
         setAnimationState('fadeOut')
@@ -51,7 +51,7 @@ export function MainContent({ children }: MainContentProps) {
       
       return () => clearInterval(interval)
     }
-  }, [subdomain, storeExists, platforms.length])
+  }, [subdomain, /* storeExists, */ platforms.length])
   
   /* if(isPending) {
     return (
@@ -67,7 +67,7 @@ export function MainContent({ children }: MainContentProps) {
     )
   } */
 
-  if (Guard.isEmpty(subdomain) || !storeExists) {
+  if (Guard.isEmpty(subdomain) /* || !storeExists */) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[80vh] py-12 px-6 sm:px-4 text-center">
         <div className="max-w-md">

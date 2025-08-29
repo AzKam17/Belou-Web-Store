@@ -16,13 +16,17 @@ import { useCartStore } from '@/store/cart-store'
 export function Header() {
 	const subdomain = useSubDomain()
 	const { isPending: isStorePending, data: storeData } = useGetStore(subdomain)
-	const { isPending: isStoreImgPending, data: storeImg } = useFilePublicUrl({
+	/* const { isPending: isStoreImgPending, data: storeImg } = useFilePublicUrl({
 		bucket: 'store-pictures',
 		publicBucket: true,
 		path: storeData?.picture,
-	})
+	}) */
+
+	React.useEffect(function(){
+		console.log('storeData',storeData)
+	}, [storeData])
 	
-	const isLoading = isStorePending || isStoreImgPending
+	const isLoading = isStorePending /* || isStoreImgPending */
 	const showLoading = useMinimumLoadingTime(isLoading)
 	
 	const cartItems = useCartStore(state => state.items)
@@ -48,7 +52,7 @@ export function Header() {
 			<Link href="/">
 				<div className="flex flex-col items-center gap-3">
 					<Avatar className="h-10 w-10 lg:h-32 lg:w-32">
-						<AvatarImage src={storeImg} />
+						{/* <AvatarImage src={storeImg} /> */}
 						<AvatarFallback>B</AvatarFallback>
 					</Avatar>
 					<h1 className="text-lg font-semibold lg:text-2xl">{storeData?.name}</h1>

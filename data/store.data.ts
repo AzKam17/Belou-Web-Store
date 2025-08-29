@@ -1,25 +1,18 @@
 import { useQuery } from '@tanstack/react-query'
-import { Guard, useSupabase } from '@/utils'
+import { Guard } from '@/utils'
+import { useAxios } from '@/hooks/useAxios'
 
 const TABLE_NAME = 'stores'
 
 export function useGetStore(storeSlug: string) {
-    const supabase = useSupabase()
+    const {axiosIns} = useAxios()
 	return useQuery({
 		enabled: !Guard.isEmpty(storeSlug),
 		queryKey: [`store_${storeSlug}`],
 		queryFn: async function() {
-			const { data, error } = await supabase
-				.from(TABLE_NAME)
-				.select('*')
-				.eq('slug', storeSlug)
-				.single()
-
-			if (error) {
-				throw error
-			}
-
-			return data
+			const res = await axiosIns.get(`/store`)
+			console.log('opop',res.data)
+			return res.data
 		},
 	})
 }
