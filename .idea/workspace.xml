@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat:link to product id">
+    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat:add localhost to enabled image provider">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/views/products/product-images-carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/products/product-images-carousel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/order.data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/order.data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/products.data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/products.data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hooks/useAxios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useAxios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,28 +51,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/azk/WebstormProjects/Belou/web-store/app&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/azk/.nvm/versions/node/v21.6.2/lib/node_modules/prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/azk/WebstormProjects/Belou/web-store/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "js.debugger.nextJs.config.created.client": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/amadoukamagate/Documents/Projets_/Belou-Web-Store",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "/home/amadoukamagate/.nvm/versions/node/v22.18.0/bin/node",
+    "nodejs_package_manager_path": "npm",
+    "npm.debug.executor": "Run",
+    "npm.dev.executor": "Run",
+    "npm.start.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/azk/.nvm/versions/node/v21.6.2/lib/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "settings.nodejs",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/home/amadoukamagate/Documents/Projets_/Belou-Web-Store/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app" />
@@ -79,7 +88,17 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
-    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3001/">
+      <method v="2" />
+    </configuration>
+    <configuration name="debug" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="debug" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -92,16 +111,34 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Next.js: debug client-side" />
+      <item itemvalue="npm.debug" />
+      <item itemvalue="npm.dev" />
+      <item itemvalue="npm.start" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.debug" />
+        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-WS-251.23774.424" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-WS-252.25557.126" />
       </set>
     </attachedChunks>
   </component>
@@ -115,6 +152,7 @@
       <workItem from="1745394696787" duration="730000" />
       <workItem from="1745478127513" duration="7765000" />
       <workItem from="1745916228272" duration="3610000" />
+      <workItem from="1759337525423" duration="7233000" />
     </task>
     <task id="LOCAL-00001" summary="feat: init project">
       <option name="closed" value="true" />
@@ -196,7 +234,55 @@
       <option name="project" value="LOCAL" />
       <updated>1745486246337</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="feat:reformat to use link instead of supabase">
+      <option name="closed" value="true" />
+      <created>1759352676597</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1759352676597</updated>
+    </task>
+    <task id="LOCAL-00012" summary="chore:remove log">
+      <option name="closed" value="true" />
+      <created>1759352705691</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1759352705691</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat:convert to api">
+      <option name="closed" value="true" />
+      <created>1759354263354</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1759354263354</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat:convert to api">
+      <option name="closed" value="true" />
+      <created>1759354272792</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1759354272792</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat:add localhost to enabled image provider">
+      <option name="closed" value="true" />
+      <created>1759354288605</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1759354288605</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat:add localhost to enabled image provider">
+      <option name="closed" value="true" />
+      <created>1759354311485</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1759354311485</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,15 +304,26 @@
     <MESSAGE value="feat: added remote to image paths" />
     <MESSAGE value="feat: listing products with images" />
     <MESSAGE value="feat:link to product id" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:link to product id" />
+    <MESSAGE value="feat:reformat to use link instead of supabase" />
+    <MESSAGE value="chore:remove log" />
+    <MESSAGE value="feat:convert to api" />
+    <MESSAGE value="feat:add localhost to enabled image provider" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:add localhost to enabled image provider" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/layout.tsx</url>
-          <line>23</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/data/file.data.ts</url>
+          <line>12</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/components/views/products/list-product-image.view.tsx</url>
+          <line>31</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
