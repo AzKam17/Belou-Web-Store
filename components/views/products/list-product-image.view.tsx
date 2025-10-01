@@ -13,15 +13,13 @@ export type ListProductImageView = {
 
 export const ListProductImageView = React.memo((props: ListProductImageView) => {
 	const { isPending, data } = useFilePublicUrl({
-		bucket: 'product-pictures',
-		publicBucket: true,
 		path: props.imagePath,
 	})
-	
+
 	const showLoading = useMinimumLoadingTime(isPending || !data)
 
 	if (Guard.isEmpty(props.imagePath)) return <></>
-	
+
 	if (showLoading) {
 		return (
 			<div className="aspect-square w-full overflow-hidden rounded-xl bg-muted/10">
