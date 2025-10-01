@@ -5,21 +5,13 @@ import axios, {
 } from 'axios'
 import React from 'react'
 
-export const useAxios = function () {
+export const useAxios = function() {
 	const subdomain = useSubDomain()
-	const [baseURL, setBaseURL] = React.useState<string>('')
+	const baseURL = process.env.NEXT_PUBLIC_BACKEND_URL || ''
 
-	React.useEffect(() => {
-		const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || ''
-
-		if (!BACKEND_URL) {
-			console.warn(
-				'Backend server URL is not defined. API requests may fail.',
-			)
-		}
-
-		setBaseURL(BACKEND_URL)
-	}, [])
+	if (!baseURL) {
+		console.warn('Backend server URL is not defined. API requests may fail.')
+	}
 
 	const axiosIns = React.useMemo(() => {
 		const instance: AxiosInstance = axios.create({
@@ -43,7 +35,11 @@ export const useAxios = function () {
 		return instance
 	}, [baseURL, subdomain])
 
+	const formatUrl = React.useCallback(async (args: { path: string }) => {
+		return `${baseURL}${args.path}`
+	}, [baseURL])
+
 	return {
-		axiosIns
+		axiosIns, formatUrl,
 	}
 }
