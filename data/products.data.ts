@@ -1,24 +1,18 @@
 import { useQuery } from '@tanstack/react-query'
 import { Guard, useSupabase } from '@/utils'
+import { useAxios } from '@/hooks/useAxios'
 
 const TABLE_NAME = 'products'
 
 export function useGetProducts(storeId: string) {
-    const supabase = useSupabase()
+	const { axiosIns } = useAxios()
 	return useQuery({
 		enabled: !Guard.isEmpty(storeId),
 		queryKey: [`products_${storeId}`],
 		queryFn: async function() {
-			const { data, error } = await supabase
-				.from(TABLE_NAME)
-				.select('*')
-				.eq('store_id', storeId)
-
-			if (error) {
-				throw error
-			}
-			console.log(data)
-			return data
+			const res = await axiosIns.get(`/article/list/${storeId}`)
+			console.log('opop', res.data)
+			return res.data
 		},
 	})
 }
@@ -29,22 +23,13 @@ export function useGetProducts(storeId: string) {
  * @returns Query result containing the product data
  */
 export function useGetProduct(productId: string) {
-    const supabase = useSupabase()
+	const { axiosIns } = useAxios()
 	return useQuery({
 		enabled: !Guard.isEmpty(productId),
 		queryKey: [`product_${productId}`],
 		queryFn: async function() {
-			const { data, error } = await supabase
-				.from(TABLE_NAME)
-				.select('*')
-				.eq('id', productId)
-				.single()
-
-			if (error) {
-				throw error
-			}
-
-			return data
+			const res = await axiosIns.get(`/article/details/${productId}`)
+			return res.data
 		},
 	})
 }
