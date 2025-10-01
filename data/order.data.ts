@@ -1,56 +1,52 @@
 import { useSupabase } from '@/utils'
 import { useMutation, useQueries, useQuery } from '@tanstack/react-query'
+import { useAxios } from '@/hooks/useAxios'
 
 type Order = {
-    full_name: string,
-    phone_number: string,
-    address: string,
-    city: string,
-    notes?: string,
-    payment_method: string,
-    store_id: string,
-    forwarded_total: number,
-    cart_items: OrderItem[]
+	full_name: string,
+	phone_number: string,
+	address: string,
+	city: string,
+	notes?: string,
+	payment_method: string,
+	store_id: string,
+	forwarded_total: number,
+	cart_items: OrderItem[]
 }
 
 type OrderItem = {
-    product_id: string,
-    quantity: number,
-    price: number,
+	product_id: string,
+	quantity: number,
+	price: number,
 }
 
 export function useCreateOrder() {
-    const supabase = useSupabase()
-    return useMutation({
-        mutationFn: async (params: Order) => {
-            const { data, error } = await supabase
-                .rpc('create_order_v1', params)
+	const { axiosIns } = useAxios()
+	return useMutation({
+		mutationFn: async (params: Order) => {
+			const res = await axiosIns.post(`/orders`, {
+				...params,
+				client_name: params.full_name,
+				client_phone: params.phone_number,
+				additionnal_notes: params.notes,
+				items: params.cart_items,
+			})
 
-            if (error) {
-                throw error
-            }
 
-            return data
-        },
-    })
+			return res.data
+		},
+	})
 }
 
 export function useGetOrder(orderId: string) {
-    const supabase = useSupabase()
-    return useQuery({
-        enabled: !!orderId,
-        queryKey: [`order_${orderId}`, orderId],
-        queryFn: async () => {
-            const { data, error } = await supabase
-                .from('orders')
-                .select('*')
-                .eq('id', orderId)
-                .single()
-            if (error) {
-                throw error
-            }
-            return data
-        },
-    })
+	const { axiosIns } = useAxios()
+	return useQuery({
+		enabled: !!orderId,
+		queryKey: [`order_${orderId}`, orderId],
+		queryFn: async function() {
+			const res = await axiosIns.get(`/orders/${orderId}`)
+			return res.data
+		},
+	})
 
 }

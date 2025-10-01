@@ -5,10 +5,9 @@ import OrderSuccessPageComponent from '@/components/views/order-success/order-su
 
 
 export async function generateMetadata(): Promise<Metadata> {
-    return META.DEFAULT_ORDER_SUCCESS
+	return META.DEFAULT_ORDER_SUCCESS
 }
 
-
 export default function OrderSuccessPage() {
-    return <OrderSuccessPageComponent />
+	return <OrderSuccessPageComponent />
 }

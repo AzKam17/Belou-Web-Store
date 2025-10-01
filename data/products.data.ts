@@ -4,14 +4,18 @@ import { useAxios } from '@/hooks/useAxios'
 
 const TABLE_NAME = 'products'
 
-export function useGetProducts(storeId: string) {
+export function useGetProducts(args: {
+	storeId: string, page: number, limit: number, search: string
+}) {
 	const { axiosIns } = useAxios()
+	const { storeId, page, limit, search } = args
 	return useQuery({
 		enabled: !Guard.isEmpty(storeId),
-		queryKey: [`products_${storeId}`],
+		queryKey: [`products_${storeId}`, page, limit, search],
 		queryFn: async function() {
-			const res = await axiosIns.get(`/article/list/${storeId}`)
-			console.log('opop', res.data)
+			const res = await axiosIns.get(`/article/list/${storeId}`, {
+				params: { page, limit, search },
+			})
 			return res.data
 		},
 	})

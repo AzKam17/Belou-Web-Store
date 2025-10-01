@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat:add localhost to enabled image provider">
+    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat:add debug option in starters">
+      <change afterPath="$PROJECT_DIR$/hooks/useDebounce.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/order.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/order-success/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/order-success/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/views/checkout/checkout.page.client.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/checkout/checkout.page.client.component.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/views/order-success/order-success.page.components.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/order-success/order-success.page.components.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/views/products/list-products.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/products/list-products.view.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/views/products/product-images-carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/products/product-images-carousel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/order.data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/order.data.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/products.data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/products.data.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useAxios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useAxios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/misc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/misc.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +64,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "js.debugger.nextJs.config.created.client": "true",
@@ -152,7 +162,7 @@
       <workItem from="1745394696787" duration="730000" />
       <workItem from="1745478127513" duration="7765000" />
       <workItem from="1745916228272" duration="3610000" />
-      <workItem from="1759337525423" duration="7233000" />
+      <workItem from="1759337525423" duration="10891000" />
     </task>
     <task id="LOCAL-00001" summary="feat: init project">
       <option name="closed" value="true" />
@@ -282,7 +292,47 @@
       <option name="project" value="LOCAL" />
       <updated>1759354311485</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat:add localhost to enabled image provider">
+      <option name="closed" value="true" />
+      <created>1759354319766</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1759354319766</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat:add localhost to enabled image provider">
+      <option name="closed" value="true" />
+      <created>1759354326730</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1759354326730</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat:add format url method">
+      <option name="closed" value="true" />
+      <created>1759354340680</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1759354340680</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat:add format url method">
+      <option name="closed" value="true" />
+      <created>1759354345028</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1759354345028</updated>
+    </task>
+    <task id="LOCAL-00021" summary="feat:add debug option in starters">
+      <option name="closed" value="true" />
+      <created>1759354359039</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1759354359039</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +358,9 @@
     <MESSAGE value="chore:remove log" />
     <MESSAGE value="feat:convert to api" />
     <MESSAGE value="feat:add localhost to enabled image provider" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:add localhost to enabled image provider" />
+    <MESSAGE value="feat:add format url method" />
+    <MESSAGE value="feat:add debug option in starters" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:add debug option in starters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

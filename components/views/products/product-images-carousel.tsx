@@ -1,6 +1,6 @@
 'use client'
 
-import { useFilePublicUrl } from '@/data/file.data'
+import { useFilePublicUrl, useFilePublicUrls } from '@/data/file.data'
 import { useMemo, useState, useRef } from 'react'
 import Image from 'next/image'
 
