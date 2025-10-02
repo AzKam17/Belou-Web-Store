@@ -1,5 +1,4 @@
-import { useSupabase } from '@/utils'
-import { useMutation, useQueries, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { useAxios } from '@/hooks/useAxios'
 
 type Order = {
@@ -15,7 +14,7 @@ type Order = {
 }
 
 type OrderItem = {
-	product_id: string,
+	article_id: string,
 	quantity: number,
 	price: number,
 }
