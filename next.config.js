@@ -4,18 +4,19 @@ const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'eypgmaqrevfoxtdusxeu.supabase.co',
-        port: '',
-        pathname: '/**',
-      },
-			{
-				protocol: 'http',
-				hostname: 'localhost',
-				port: '3000',
-				pathname: '/**',
-			},
+			isProd
+				? {
+					protocol: 'https',
+					hostname: 'api.belou.store',
+					port: '',
+					pathname: '/**',
+				}
+				: {
+					protocol: 'http',
+					hostname: 'localhost',
+					port: '3000',
+					pathname: '/**',
+				},
     ],
   },
 }
