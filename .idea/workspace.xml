@@ -4,22 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat:add debug option in starters">
-      <change afterPath="$PROJECT_DIR$/hooks/useDebounce.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/order.ts" afterDir="false" />
+    <list default="true" id="891730f4-b274-44ae-aade-e6b25c6e2795" name="Changes" comment="feat:fix unfound mapping">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/order-success/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/order-success/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/product/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/product/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/views/checkout/checkout.page.client.component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/checkout/checkout.page.client.component.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/views/order-success/order-success.page.components.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/order-success/order-success.page.components.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/views/products/list-products.view.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/products/list-products.view.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/views/products/product-images-carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/products/product-images-carousel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/order.data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/order.data.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/products.data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/products.data.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/misc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/misc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/views/main-content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/views/main-content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/store.data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/store.data.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,12 +34,18 @@
     &quot;assignee&quot;: &quot;AmadouAz&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="e5080955-b8fc-420d-8409-64ae88892337" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/AzKam17/Belou-Web-Store.git&quot;,
     &quot;accountId&quot;: &quot;0333bc62-b7a6-45a8-8d9d-00b9f7eaece8&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -76,6 +70,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_interpreter_path": "/home/amadoukamagate/.nvm/versions/node/v22.18.0/bin/node",
     "nodejs_package_manager_path": "npm",
+    "npm.build.executor": "Run",
     "npm.debug.executor": "Run",
     "npm.dev.executor": "Run",
     "npm.start.executor": "Run",
@@ -97,8 +92,18 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="npm.build">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3001/">
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="debug" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -133,12 +138,14 @@
     </configuration>
     <list>
       <item itemvalue="JavaScript Debug.Next.js: debug client-side" />
+      <item itemvalue="npm.build" />
       <item itemvalue="npm.debug" />
       <item itemvalue="npm.dev" />
       <item itemvalue="npm.start" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.dev" />
         <item itemvalue="npm.debug" />
         <item itemvalue="npm.start" />
@@ -162,7 +169,7 @@
       <workItem from="1745394696787" duration="730000" />
       <workItem from="1745478127513" duration="7765000" />
       <workItem from="1745916228272" duration="3610000" />
-      <workItem from="1759337525423" duration="10891000" />
+      <workItem from="1759337525423" duration="12628000" />
     </task>
     <task id="LOCAL-00001" summary="feat: init project">
       <option name="closed" value="true" />
@@ -332,7 +339,23 @@
       <option name="project" value="LOCAL" />
       <updated>1759354359039</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="feat:changes">
+      <option name="closed" value="true" />
+      <created>1759360068552</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1759360068552</updated>
+    </task>
+    <task id="LOCAL-00023" summary="feat:fix unfound mapping">
+      <option name="closed" value="true" />
+      <created>1759390585399</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1759390585399</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,6 +364,17 @@
       <list>
         <option value="$PROJECT_DIR$/next.config.js" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
@@ -360,7 +394,9 @@
     <MESSAGE value="feat:add localhost to enabled image provider" />
     <MESSAGE value="feat:add format url method" />
     <MESSAGE value="feat:add debug option in starters" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:add debug option in starters" />
+    <MESSAGE value="feat:changes" />
+    <MESSAGE value="feat:fix unfound mapping" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:fix unfound mapping" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
